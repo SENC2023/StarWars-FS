@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 export const CardPlanets = ({ planet }) => {
   // console.log(planet)
 
-const [details, setDetails] = useState ({})
+// const [details, setDetails] = useState ({})
 const {store, actions} = useContext(Context);
 
 const addToFavorites = () => {
@@ -14,22 +14,22 @@ const addToFavorites = () => {
   }
 };
 
-  useEffect(() => {
-		fetch("https://www.swapi.tech/api/planets/"+planet.uid)
-        .then(res => res.json())
-        .then(data => setDetails(data.result.properties))
-        .catch(err => console.error(err))
-        }, [])
+  // useEffect(() => {
+	// 	fetch("https://www.swapi.tech/api/planets/"+planet.uid)
+  //       .then(res => res.json())
+  //       .then(data => setDetails(data.result.properties))
+  //       .catch(err => console.error(err))
+  //       }, [])
 
 	return (
     <div className="card col-3 m-2 p-2 bg-dark text-light">
       <img src="https://loremflickr.com/640/360" className="card-img-top" alt="..."/>
       <div className="card-body">
         <h5 className="card-title text-center">{planet.name}</h5>
-        <p className="card-text">Population: {details.population}</p>
-        <p className="card-text">Terrain: {details.terrain}</p>
+        <p className="card-text">Orbital period: {planet.orbital_period}</p>
+        <p className="card-text">Rotation period: {planet.rotation_period}</p>
         <div className="d-flex justify-content-between">
-          <Link to={`/planet/${planet.uid}`}>
+          <Link to={`/planet/${planet.id}`}>
             <button className="btn btn-primary">
               Learn more!
             </button>

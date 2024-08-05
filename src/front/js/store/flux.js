@@ -60,40 +60,70 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getCharacters: () => {
-				fetch("https://www.swapi.tech/api/people/")
-				.then(res => res.json())
-				.then(data => setStore({ characters: data.results }))
-				.catch(err => console.error(err))
+				fetch("https://psychic-system-4j7pxvvrqv47f7xxv-3001.app.github.dev/api/characters")
+					.then(res => res.json())
+					.then(data => {
+						console.log(data);
+						if (data.results) {
+							setStore({ characters: data.results });
+						} else {
+							setStore({ characters: data });
+						}
+					})
+					.catch(err => console.error(err));
 			},
 			getCharacter: (id) => {
-				fetch("https://www.swapi.tech/api/people/"+id)
-				.then(res => res.json())
-				.then(data => setStore({ character: data.result }))
-				.catch(err => console.error(err))
-			},
+				fetch(`https://psychic-system-4j7pxvvrqv47f7xxv-3001.app.github.dev/api/characters/${id}`)
+					.then(res => res.json())
+					.then(data => {
+						console.log("Fetched character data:", data);
+						setStore({ character: data });
+					})
+					.catch(err => console.error("Error fetching character:", err));
+			},			
 			getPlanets: () => {
-				fetch("https://www.swapi.tech/api/planets/")
-				.then(res => res.json())
-				.then(data => setStore({ planets: data.results }))
-				.catch(err => console.error(err))
+				fetch("https://psychic-system-4j7pxvvrqv47f7xxv-3001.app.github.dev/api/planets")
+					.then(res => res.json())
+					.then(data => {
+						console.log(data);
+						if (data.results) {
+							setStore({ planets: data.results });
+						} else {
+							setStore({ planets: data });
+						}
+					})
+					.catch(err => console.error(err));
 			},
 			getPlanet: (id) => {
-				fetch("https://www.swapi.tech/api/planets/"+id)
-				.then(res => res.json())
-				.then(data => setStore({ planet: data.result }))
-				.catch(err => console.error(err))
+				fetch(`https://psychic-system-4j7pxvvrqv47f7xxv-3001.app.github.dev/api/planets/${id}`)
+					.then(res => res.json())
+					.then(data => {
+						console.log("Fetched planet data:", data);
+						setStore({ planet: data });
+					})
+					.catch(err => console.error("Error fetching planet:", err));
 			},
 			getVehicles: () => {
-				fetch("https://www.swapi.tech/api/vehicles/")
-				.then(res => res.json())
-				.then(data => setStore({ vehicles: data.results }))
-				.catch(err => console.error(err))
+				fetch("https://psychic-system-4j7pxvvrqv47f7xxv-3001.app.github.dev/api/vehicles")
+					.then(res => res.json())
+					.then(data => {
+						console.log(data);
+						if (data.results) {
+							setStore({ vehicles: data.results });
+						} else {
+							setStore({ vehicles: data });
+						}
+					})
+					.catch(err => console.error(err));
 			},
 			getVehicle: (id) => {
-				fetch("https://www.swapi.tech/api/vehicles/"+id)
-				.then(res => res.json())
-				.then(data => setStore({ vehicle: data.result }))
-				.catch(err => console.error(err))
+				fetch(`https://psychic-system-4j7pxvvrqv47f7xxv-3001.app.github.dev/api/vehicles/${id}`)
+					.then(res => res.json())
+					.then(data => {
+						console.log("Fetched vehicle data:", data);
+						setStore({ vehicle: data });
+					})
+					.catch(err => console.error("Error fetching vehicle:", err));
 			},
 			addFavorite: (characterName) => {
 				const { favorites } = getStore();
