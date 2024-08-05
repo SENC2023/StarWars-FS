@@ -62,10 +62,6 @@ export const People = () => {
                             <h5 className="card-title">Eye Color</h5>
                             <p className="card-text">{character.eye_color}</p>
                         </div>
-                        <div className="card-body text-danger">
-                            <h5 className="card-title">Skin Color</h5>
-                            <p className="card-text">{character.skin_color}</p>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -24,17 +24,17 @@ export const Navbar = () => {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item dropdown btn btn-primary">
               <a className="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {/* Favorites ({store.favorites.length}) */}
+                Favorites ({store.favorites.length})
               </a>
               <ul className="dropdown-menu dropdown-menu-end">
-                {/* {store.favorites.map((favorite, index) => (
+                {store.favorites.map((favorite, index) => (
                   <li key={index} className="d-flex align-items-center">
                     <span className="dropdown-item">{favorite}</span>
                     <button className="btn btn-sm btn-danger ms-2" onClick={() => removeFromFavorites(favorite)}>
                       <i className="fa-solid fa-trash"></i>
                     </button>
                   </li>
-                ))} */}
+                ))}
               </ul>
             </li>
           </ul>
